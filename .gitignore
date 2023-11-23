@@ -1,3 +1,8 @@
 *.pdf
 Code/detection_table_passive.csv
 Code/detection_table_active.csv
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.synctex.gz
