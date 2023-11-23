@@ -1,0 +1,30 @@
+%-------------------------------------------------------------------------------
+% Survey.tex
+%-------------------------------------------------------------------------------
+% 2023-11-23
+% curtis
+%-------------------------------------------------------------------------------
+% Description of LaTeX project
+%-------------------------------------------------------------------------------
+
+\documentclass[a4paper,10pt,oneside,headsepline,BCOR=10mm,version=first,enabledeprecatedfontcommands]{scrartcl}
+\usepackage{subfiles}
+\usepackage{paperstyle}
+
+\ihead{ASuW Playtest Questionnaire }
+
+\graphicspath{{./figures/}}
+
+\begin{document}
+
+\begin{center}
+\textbf{\huge ASuW Playtest Survey}
+\end{center}\vskip1em
+
+\subfile{./tex/Demographics.tex}
+\subfile{./tex/GameData.tex}
+\subfile{./tex/Interface.tex}
+\subfile{./tex/GameExperience.tex}
+
+\end{document}
+
