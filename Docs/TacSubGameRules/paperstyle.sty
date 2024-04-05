@@ -1,0 +1,67 @@
+%-------------------------------------------------------------------------------
+% paperstyle.sty
+%-------------------------------------------------------------------------------
+% 2024-03-29
+% curtis
+%-------------------------------------------------------------------------------
+% sty file for LaTeX paper project TacSubGameRules
+%-------------------------------------------------------------------------------
+
+\ProvidesPackage{paperstyle}
+
+\usepackage[margin=0.5in,bottom=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{ebgaramond}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{subcaption}
+\usepackage{xcolor}
+\usepackage{array}
+\usepackage{hyperref}
+
+\newcommand\gametitle{\textit{ASuW}}
+
+\newcommand\TODO[1]{{\color{red}\textbf{TODO:} \textit{#1}}}
+
+\renewcommand*\thesection{\arabic{section}.0}
+\renewcommand*\thesubsection{\arabic{section}.\arabic{subsection}}
+
+\newcounter{gamerulenum}[subsection]
+\renewcommand*\thegamerulenum{\arabic{section}.\arabic{subsection}\arabic{gamerulenum}}
+\newcommand\gamerule[1]{\medskip\par\noindent\textbf{\refstepcounter{gamerulenum}\thegamerulenum\label{#1}}\space}
+
+\newenvironment{design}{\par\medskip\noindent\it DESIGN NOTES: }{}
+
+\newcommand\rulstrong[1]{\textbf{#1}}
+
+\newcommand\counterpic[1]{
+    \begin{wrapfigure}{r}{12.7mm}
+        \centering
+        \includegraphics[width=10.7mm]{#1}
+    \end{wrapfigure}
+}
+
+\newcommand\widecounterpic[1]{
+    \begin{wrapfigure}{r}{25.8mm}
+        \centering
+        \includegraphics[width=23.8mm]{#1}
+    \end{wrapfigure}
+}
+\newenvironment{Figure}
+  {\par\medskip\noindent\minipage{\linewidth}}
+  {\endminipage\par\medskip}
+
+\newenvironment{Table}
+  {\par\medskip\noindent\minipage{\linewidth}}
+  {\endminipage\par\medskip}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\DeclareCaptionFormat{gamerulecaption}{
+    \textbf{#1#2}\textit{#3}
+}
+\captionsetup{format=gamerulecaption}
+
+

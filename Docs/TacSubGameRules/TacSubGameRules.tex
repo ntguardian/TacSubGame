@@ -1,0 +1,61 @@
+%-------------------------------------------------------------------------------
+% TacSubGameRules.tex
+%-------------------------------------------------------------------------------
+% 2024-03-29
+% curtis
+%-------------------------------------------------------------------------------
+% Rules for the game ASuW
+%-------------------------------------------------------------------------------
+
+\documentclass[10pt]{article}
+\usepackage{subfiles}
+\usepackage{paperstyle}
+
+\newcommand\dtabrow[2]{
+    #1 & #2 \\
+}
+\newcommand\dtabsec[1]{
+    \dtabrow{\textbf{\underline{\uppercase{#1}}}}{}
+}
+
+\newcommand\ttabhead[2]{
+    \textbf{#1} & \textbf{#2} \\
+}
+
+\newcommand\ttabrow[2]{
+    \textbf{#1} & #2 \\
+}
+
+\newcommand\stabhead[3]{
+    \textbf{#1} & \textbf{#2} & \textbf{#3} \\
+}
+
+\newcommand\stabrow[3]{
+    \textbf{#1} & #2 & #3 \\
+}
+
+\newcommand\drmtabhead[2]{
+    \textbf{#1} & \textbf{#2} \\
+}
+
+\newcommand\drmtabrow[2]{
+    \textbf{#1} & #2 \\
+}
+
+\graphicspath{{./figures/}}
+
+\title{\gametitle~ Rules of Play}
+\author{Curtis Miller}
+\date{\today, v1.0}
+
+\begin{document}
+\maketitle
+
+\begin{multicols}{3}
+    \subfile{./tex/Introduction.tex}
+    \subfile{./tex/Rules.tex}
+    \subfile{./tex/Notes.tex}
+\end{multicols}
+
+\end{document}
+

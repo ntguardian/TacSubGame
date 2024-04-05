@@ -1,0 +1,129 @@
+%-------------------------------------------------------------------------------
+% Notes.tex
+%-------------------------------------------------------------------------------
+% 2024-03-29
+% Curtis Miller
+%-------------------------------------------------------------------------------
+% Game design notes
+%-------------------------------------------------------------------------------
+
+\makeatletter
+\def\input@path{{../}}
+\makeatother
+\documentclass[../TacSubGameRules.tex]{subfiles}
+
+\begin{document}
+
+\section*{Designer Notes}%
+\label{sec:designer_notes}
+
+Since I started work at the Institute for Defense Analyses, I desired to take some of the things I have learned about naval operations, tactics, missions, and equipment, and transform that knowledge into games.
+I made \gametitle~ as part of the IDA Microgame Project, intending it to be a postcard game.
+This game is intended to be useful as an educational game for military students, exposing them to some considerations in an ASuW engagement.
+
+Unfortunately, I limited this game's educational value signficantly with an early decision I made in designing any of these tactical games: not to ask at what ranges, depths, or time scales the events portrayed in the game represented.
+So if you are looking at the map of \gametitle~ and wondering how wide a sector is, how fast is ``fast'', how deep is ``deep'', or how long the scenario depicted is in real-world time, I actually do not know.
+I never said in my design process what the answer was.
+This was an intentional choice, with me not even looking to Wikipedia to give a sense of what the answer to these questions might be.
+I did not want to present even the possibility that this game was too realistic, to the point it might say something it should not.
+
+That said, I wanted the game to convey some key ideas about sonar, underwater sound propagation, and the platform involved in ASuW.
+I list those key ideas below.
+
+\subsection*{Passive and Active Sonar}%
+\label{sub:passive_and_active_sonar}
+
+\gametitle~ sketches some differences between passive sonar and active sonar.
+Passive sonar involves hearing underwater sound and making judgements about the sound source based on what is heard.
+The LHD in \gametitle~ uses passive sonar, and thus cares about the amount of sound the SSN generated (depending on the SSN's speed) but less about the orientation of the SSN.
+The torpedo uses active sonar, so it cares about what angle of the LHD it sees but the sound level of the LHD is not an issue.
+Additionally, active sonar is audible to both the emitter and the target (in fact, the target hears a sound from active sonar louder than the echo the transmitter hears), which will impact the behavior of the target; passive sonar does not reveal the listener and thus does not alert anyone to the listener's presence.
+
+The sonar equations summarize the factors influencing detection of objects via underwater sound:
+\begin{equation}
+    \tag{Active}
+    \text{SL} - \text{NL}\ge \text{DT}_{\text{A}} +2\text{TL}-\text{TS} - \text{DI}
+\end{equation}
+\begin{equation}
+    \tag{Passive}
+    \text{SL} -  \text{NL}\ge\text{DT}_{\text{N}} + \text{TL}-\text{DI}  
+\end{equation}
+(I did not consider sonar in reverberation environments; this game takes place in the open ocean's simpler acoustic environment.)
+A detection occurs if these relationships hold. The symbols above are:
+\begin{itemize}
+    \item Source level (SL), either from an emitter or from the ping of an active sonar, where the louder an object (for example, a stationary submarine versus a submarine with a noisy engine at fast speed) or a sonar ping, the easier detection is;
+    \item Transmission loss (TL), reflecting how the energy from underwater sound travels through the water and depending on depth and distance for a given acoustic environment (see the discussion on convergence zones below);
+    \item Target strength (TS), signifying how well sound bounces off of an object to produce an echo, and depicted in \gametitle~ since the torpedo's active sonar is more effective when the torpedo is loosed from either the port or starboard side of the LHD since the ship looks bigger from these angles;
+    \item Directivity index (DI) and detection threshold ($\text{DT}_{{\text{A}}}$ or $\text{DT}_{\text{N}}$), parameters of the sonar system itself referring to its likelihood of registering underwater sound as a detection; and
+    \item Noise level (NL), the noise coming from the environment.
+\end{itemize}
+I sought to convey the random nature of underwater sound detection and each of these factors' roles.
+In fact, the process of computing a detection threshold and rolling two dice to determine whether a detection occurred resembles working with the sonar equations and using a probability model to determine when detection occurs.
+While I chose numbers mostly to make die rolls interesting, the concepts translate to real sonar systems.
+If you wish to learn more, read Robert Urick's \booktitle{Principles of Underwater Sound}.
+
+\subsection*{Convergence Zones}%
+\label{sub:convergence_zones}
+
+Underwater sound travels at long distances, longer than sound in air due to the higher density of water.
+However, water's density varies more than air's density in the lower atmosphere, so sound's speed depends on depth.
+Variable sound speed with depth and irregularities in sound velocity result in underwater sound travelling in strange ways.
+Regions exist where a listener could not possibly hear the emitter.
+An emitter may be easier to hear farther away than closer.
+
+In \gametitle, convergence zones portray this phenomenon (though convergence zones are not the only way this phenomenon influences sonar).
+Convergence zones are rings surrounding an emitter where sound collects (or converges), resulting in the emitter being easier to hear when inside a convergence zone than between convergence zones.
+Details of real-world convergence zones depend on the water's sound velocity profile, which varies day-to-day with the ocean's weather.
+Anti-submarine warfare and anti-surface warfare missions both need to consider convergence zones and develop tactics to account for their presence.
+
+\subsection*{Mission Sequence and Platforms}%
+\label{sub:attack_sequence}
+
+Submarines live and die by stealth.
+Hence, for a submarine to attack a target, it must
+\begin{enumerate}
+    \item Detect and track the target;
+    \item Obtain a favorable firing position without being detected too soon;
+    \item Launch torpedoes to attack the target; and
+    \item Safely disengage.
+\end{enumerate}
+The platforms involved in an ASuW engagement include:
+\begin{enumerate}
+    \item The target, a HVU (in this game, a LHD);
+    \item The submarine, in this game a SSN;
+    \item Escorting ships, often destroyers or frigates; and
+    \item Helicopters.
+\end{enumerate}
+In \gametitle, the player has already found the target, so the player must stalk and attack the target, then disengage.
+If the target hears the submarine and starts alerting other ships and taking defensive measures, sinking the target becomes very difficult.
+Disengaging can also be a challenge when the SSN is being searched for with helos searching for the SSN with dipping sonars.
+Helos are very capable ASW platforms that likely will kill many submarines in plays of \gametitle.
+
+\begin{center}
+    \noindent\rule{0.8\linewidth}{1pt}
+\end{center}
+
+While \gametitle~ portrays these basic concepts important to undersea warfare, players should not learn too much from this imperfect game.
+As I wrote earlier, my choice to never ask too many questions about ranges, time frames, and other technical characteristics lead the game to portraying capabilities and interactions not reflective at all of the real world.
+So consider the platforms and weapons I present to be hypothetical, like the caterpillar drive in Tom Clancy's \booktitle{Hunt for Red October} or some of the capabilities portrayed in August Cole and P. W. Singer's \booktitle{Ghost Fleet}.
+I think the inaccuracies also make the game more fun.
+
+Those familiar with undersea warfare may spot these inaccuracies right away; if you, the player, know such an expert, play my game with them and use my errors as a learning opportunity with said expert.
+If one limits their learning to what I described in these designer notes, I think I will not have contributed to negative learning.
+That said, I would love someday to swap out this game's fictions with real data, though I do not see an opportunity for this soon.
+
+Caveats aside, I hope you enjoy the game.
+I have found winning the game rather difficult.
+I have won when facing four escorting frigates, but in past versions of \gametitle, there were six escorting frigates.
+I have not won in this situation, no one has, and many players think the six-frigate formation may be nearly impossible to win.
+I would love to see proof that sinking the LHD and escaping the six frigates is possible.
+
+In fact, I think this game has a lot of sand box opportunity.
+The fact that it is a print-and-play game means that players can have as many units in a formation as they like.
+Sound velocity profiles change like the weather, as well, and differ over locations.
+How does the game play with a different detection table representing a different acoustic enviornment?
+The surface units' formation is not accurate either; what if a more realistic formation is used instead?
+I hope players explore tweaks to the game, and if so, let me know what you develop and what resulted.
+
+\end{document}
+
