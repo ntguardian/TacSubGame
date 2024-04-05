@@ -5,4 +5,5 @@ Code/detection_table_active.csv
 *.fdb_latexmk
 *.fls
 *.log
+*.out
 *.synctex.gz
