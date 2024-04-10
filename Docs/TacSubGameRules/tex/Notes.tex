@@ -18,16 +18,17 @@
 \label{sec:designer_notes}
 
 Since I started work at the Institute for Defense Analyses, I desired to take some of the things I have learned about naval operations, tactics, missions, and equipment, and transform that knowledge into games.
-I made \gametitle~ as part of the IDA Microgame Project, intending it to be a postcard game.
+I made \gametitle~ as part of the IDA Microgame Project, originally as a postcard game and an experiment in making a game about weapon systems I know from work.
 This game is intended to be useful as an educational game for military students, exposing them to some considerations in an ASuW engagement.
 
 Unfortunately, I limited this game's educational value signficantly with an early decision I made in designing any of these tactical games: not to ask at what ranges, depths, or time scales the events portrayed in the game represented.
-So if you are looking at the map of \gametitle~ and wondering how wide a sector is, how fast is ``fast'', how deep is ``deep'', or how long the scenario depicted is in real-world time, I actually do not know.
+So if you are looking at the map of \gametitle~ and wondering how long one inch is in real life, how fast is ``fast'', how deep is ``deep'', or how long the scenario depicted is in real-world time, I actually do not know.
 I never said in my design process what the answer was.
 This was an intentional choice, with me not even looking to Wikipedia to give a sense of what the answer to these questions might be.
 I did not want to present even the possibility that this game was too realistic, to the point it might say something it should not.
+(I may have been too paranoid.)
 
-That said, I wanted the game to convey some key ideas about sonar, underwater sound propagation, and the platform involved in ASuW.
+That said, I wanted the game to convey some key ideas about sonar, underwater sound propagation, and the platforms involved in ASuW.
 I list those key ideas below.
 
 \subsection*{Passive and Active Sonar}%
@@ -35,8 +36,8 @@ I list those key ideas below.
 
 \gametitle~ sketches some differences between passive sonar and active sonar.
 Passive sonar involves hearing underwater sound and making judgements about the sound source based on what is heard.
-The LHD in \gametitle~ uses passive sonar, and thus cares about the amount of sound the SSN generated (depending on the SSN's speed) but less about the orientation of the SSN.
-The torpedo uses active sonar, so it cares about what angle of the LHD it sees but the sound level of the LHD is not an issue.
+The ships in \gametitle~ initially use passive sonar, and thus cares about the amount of sound the SSN generated (depending on the SSN's speed).
+When the ships use active sonar, they care less about the SSN's noise since they are putting sound into the water.
 Additionally, active sonar is audible to both the emitter and the target (in fact, the target hears a sound from active sonar louder than the echo the transmitter hears), which will impact the behavior of the target; passive sonar does not reveal the listener and thus does not alert anyone to the listener's presence.
 
 The sonar equations summarize the factors influencing detection of objects via underwater sound:
@@ -48,7 +49,7 @@ The sonar equations summarize the factors influencing detection of objects via u
     \tag{Passive}
     \text{SL} -  \text{NL}\ge\text{DT}_{\text{N}} + \text{TL}-\text{DI}  
 \end{equation}
-(I did not consider sonar in reverberation environments; this game takes place in the open ocean's simpler acoustic environment.)
+(I did not consider sonar in reverberation environments as experienced in coastal waters; this game takes place in the open ocean's simpler acoustic environment.)
 A detection occurs if these relationships hold. The symbols above are:
 \begin{itemize}
     \item Source level (SL), either from an emitter or from the ping of an active sonar, where the louder an object (for example, a stationary submarine versus a submarine with a noisy engine at fast speed) or a sonar ping, the easier detection is;
@@ -120,7 +121,7 @@ I would love to see proof that sinking the LHD and escaping the six frigates is 
 
 In fact, I think this game has a lot of sand box opportunity.
 The fact that it is a print-and-play game means that players can have as many units in a formation as they like.
-Sound velocity profiles change like the weather, as well, and differ over locations.
+Sound velocity profiles change like the weather, and differ across locations.
 How does the game play with a different detection table representing a different acoustic enviornment?
 The surface units' formation is not accurate either; what if a more realistic formation is used instead?
 I hope players explore tweaks to the game, and if so, let me know what you develop and what resulted.

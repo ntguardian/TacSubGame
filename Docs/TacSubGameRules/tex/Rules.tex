@@ -18,7 +18,7 @@
 \label{sec:players}
 
 \rulstrong{\gametitle~ is a solitaire game.}
-The player controls the nuclear fast attack submarine (SSN) and tasked with sinking the landing helicopter dock (LHD) before the LHD is alerted to the presence of the SSN.
+The player controls the nuclear fast attack submarine (SSN) tasked with sinking the landing helicopter dock (LHD) before the LHD is alerted to the presence of the SSN.
 Die rolls and scripted behavior control the opposing surface units.
 A game takes between 20 and 45 minutes, largely depending on the player's success.
 
@@ -52,7 +52,7 @@ A game takes between 20 and 45 minutes, largely depending on the player's succes
     \item The LHD has been sunk (\ref{sub:loose_torpedoes}, \ref{rul:torphitship}).
     \item The SSN is 12'' away from the nearest FF.
     \item The SSN was not detected by any surface units during a surface detection step (\ref{rul:surfdetection}).
-    \item The SSN leaves the table.
+    \item The SSN leaves the play area (\ref{rul:leavetable}).
 \end{itemize}
 
 \subsection{Defeat}%
@@ -60,9 +60,9 @@ A game takes between 20 and 45 minutes, largely depending on the player's succes
 
 \rulstrong{The player loses the game if:}
 \begin{itemize}
-    \item Any surface unit leaves the play area prior to sinking the LHD.
-    \item The SSN is sunk.
-    \item The SSN has no remaining torpedoes and has not sunk the LHD.
+    \item Any surface unit leaves the play area prior to sinking the LHD (\ref{rul:leavetable}).
+    \item The SSN is sunk (\ref{rul:torphitssn}).
+    \item The SSN has no remaining torpedoes and has not sunk the LHD (\ref{rul:torploosecount}).
 \end{itemize}
 
 \section{Materials and Setup}%
@@ -76,7 +76,7 @@ A game takes between 20 and 45 minutes, largely depending on the player's succes
 The player needs to provide six-sided dice (ideally two) to play \gametitle.
 In the rules, these dice are referred to as d6.
 \rulstrong{Rolling two dice and summing the number of pips showing is called rolling 2d6, while rolling one die is called rolling 1d6.}
-Die rolls are used to determine surface units' movement (\ref{rul:surfmaneuver}) resolve sonar detection (\ref{rul:sonarroll}), resolve torpedo kills (\ref{sub:loose_torpedoes}), and resolve SSN evasion.
+Die rolls are used to determine surface units' movement (\ref{rul:surfmaneuver}) resolve sonar detection (\ref{rul:sonarroll}), resolve torpedo kills (\ref{rul:torphitship}, \ref{rul:torphitssn}), and resolve SSN evasion.
 
 \subsection{Tape Measure and Distances}%
 \label{sub:tape_measure}
@@ -88,14 +88,14 @@ Use a tape measure or yard stick with Imperial units when playing \gametitle.
 \label{sub:playarea}
 
 \rulstrong{Play \gametitle~ on a large table top.}
-There is no rule on exact dimensions.
+\gametitle~ has no dimension requirement.
 Note that the geometry of your table determines the difficulty of \gametitle, as the game ends when either any surface unit leaves the table prior to the SSN sinking the LHD (\ref{sub:defeat}) or when the SSN leaves the play area (\ref{sub:victory}).
 
 \gamerule{rul:leavetable} \rulstrong{If a ship, SSN, or helo makes a maneuver (\ref{sub:maneuver}) that results in the counter leaving the table, remove the counter from the game.}
 This event may occur if:
 \begin{itemize}
-    \item A ship moves in a path, either willingly or unwillingly, that takes the counter off the table (\ref{rul:ssnmaneuver}).
-    \item A helo moves to a counter that is not on the table..
+    \item A ship or the SSN moves in a path, either willingly or unwillingly, that takes the counter off the table (\ref{rul:ssnmaneuver}, \ref{rul:lhdmaneuver}, \ref{rul:ffmaneuver}).
+    \item A helo moves to a counter that is not on the table (\ref{rul:helomaneuver}).
 \end{itemize}
 If a DP needs to be placed off the table, do not place the DP at all, and ignore all detection rolls for that DP (\ref{rul:surfdetection}).
 
@@ -125,7 +125,7 @@ Unlike ships and the SSN, helos do not point in any particular direction, since 
 \begin{design}
     Helos in \gametitle~ use dipping sonars to listen for the SSN.
     The helo starts listening at shallow depth.
-    As the dipping sonar lowers deeper into the ocean, the helo counter flips over to the deep side to indicate it is now listening for the SSN at a deeper depth.
+    As the dipping sonar lowers deeper into the ocean, the helo counter flips over to its deep side to indicate it is now listening for the SSN at a deeper depth.
     After the helo moves, the cycle starts over.
     No, I do not know at what speed a dipping sonar rises or drops in real life, and I chose not to ask (see the design notes for why).
 \end{design}
@@ -135,10 +135,12 @@ The SSN is \emph{not} a ship.
 Ship counters have two sides: unalerted (light blue) and alerted (red).
 \rulstrong{All ships start the game unalerted, so ship counters set up on their unalerted side.}
 Ship counters also have an arrow in front of the bow of the ship, indicating the direction the ship points and thus which direction is straight ahead.
-When a ship detects the SSN, the ship becomes alerted; flip the ship counter over to the alerted side.
+When an unalerted ship detects the SSN (\ref{rul:surfdetection}), the ship becomes alerted (\ref{rul:surfdetectresults}); flip the ship counter over to the alerted side.
+When flipping a ship, preserve its orientation; the direction it points toward does not change.
+Ships may become alerted by torpedo attacks (\ref{rul:torpalert}) or other ships beginning the surface units' turn alerted (\ref{rul:detectspread}).
 Ships always listen for the SSN at shallow depth (\ref{rul:sonarthreshold}).
-Die rolls determine ship maneuvers, with all ships making identical maneuvers if the LHD is sailing, or FFs moving towards the SSN if the LHD is sunk.
-When a ship launches a helo, leave the helo at the ship's old position, move the ship, then move the helo according to the helo's maneuver rules.
+Die rolls determine ship maneuvers, with all ships making identical maneuvers if the LHD is sailing (\ref{rul:lhdmaneuver}), or FFs moving towards the SSN if the LHD is sunk (\ref{rul:ffmaneuver}).
+When a ship launches a helo (\ref{rul:surfmaneuver}), leave the helo at the ship's old position, move the ship, then move the helo according to the helo's maneuver rules (\ref{rul:helomaneuver}).
 
 \begin{design}
     SSNs are not ships.
@@ -159,10 +161,11 @@ When a ship launches a helo, leave the helo at the ship's old position, move the
 
 \widecounterpic{SSNDeep}
 \gamerule{rul:ssn} The player controls the nuclear fast attack submarine (SSN) counter (\ref{sec:players}).
-The counter has two sides, shallow (dark blue) and deep (light blue).
+The counter has two sides, deep (dark blue) and shallow (light blue).
 Like ships, the SSN has an arrow at the front of its counter before the SSN's bow indicating its direction of travel and what is straight ahead of the SSN.
 \rulstrong{Place the SSN in the play area 30'' away from the nearest FF on its deep depth side.}
-When the SSN changes depth, flip its counter to the appropriate side.
+When the SSN changes depth (\ref{rul:ssnmaneuver}), flip its counter to the appropriate side.
+As with a ship, preserve the SSN's orientation.
 
 \begin{design}
     As discussed in \ref{sub:playarea}, the geometry of the play area and player setup determines \gametitle's difficulty.
@@ -170,17 +173,17 @@ When the SSN changes depth, flip its counter to the appropriate side.
     I encourage players to experiment with different play areas and SSN positions relative to the surface units.
     See how difficult different configurations are.
     If the SSN is directly behind a surface group about to leave the play area, the game will be quite difficult.
-    On the other hand, if the SSN is sitting right in front of a surface group with plenty of space between table edges, the SSN may have a much easier time.
+    On the other hand, if the SSN is in front of a surface group with plenty of space between table edges, the SSN may have a much easier time completing its mission.
     This latter setup treats the SSN like a ``mobile minefield,'' a concept of operations used by diesel-electric submarines (SSKs) that take advantage of SSK's silence when running on their batteries, but this tactic is available to SSNs as well.
 \end{design}
 
 \counterpic{DP2S}
-\gamerule{rul:dp} As the SSN moves through the play area, the player places detection point (DP) counters that surface units use during their sonar detection roll (\ref{rul:surfdetection}) and FFs or helos move toward when pursuing the SSN.
+\gamerule{rul:dp} As the SSN moves through the play area, the player places detection point (DP) counters that surface units use during their sonar detection roll (\ref{rul:surfdetection}) and FFs or helos move toward when pursuing the SSN (\ref{rul:helomaneuver}, \ref{rul:ffmaneuver}).
 The game provides six double-sided DP counters, of which only three will be on the table (except at the start of the game prior to the SSN taking its first turn).
 On each counter is a number from one to three and, on each side of the counter, a letter corresponding to speed levels of the SSN: (C)reep, (S)low, (F)ast, and f(L)ank.
 (Creep and slow share a counter, fast and flank a different counter.)
 The number on the counter matters only for when helos or FFs need to decide in which direction to travel, and all that matters is that all three numbers be placed on the table after the SSN finishes its maneuver (\ref{rul:ssnmaneuver}); in other words, the player is not obligated to place the DP numbers in any particular order.
-However, the speed level indicated by the DP counter matters, and is determined during the SSN's maneuver step.
+However, the speed level indicated by the DP counter matters, and is determined during the SSN's maneuver step (\ref{rul:ssnmaneuver}).
 One DP will be beside the SSN, while the other two will be away from the SSN.
 The two DPs away from the SSN will be accompanied by depth counters that show the depth of the DP, while the depth of the DP beside the SSN is determine by the depth of the SSN.
 \rulstrong{Place any slow DP (any number) beside the SSN after placing the SSN in the play area during game setup; note that this means that the SSN starts the game having traveled slow (which means the SSN's next maneuver cannot be at flank speed).}
@@ -197,7 +200,7 @@ The two DPs away from the SSN will be accompanied by depth counters that show th
     \includegraphics[width=10.7mm]{HeavyTorp}
     \includegraphics[width=10.7mm]{LightTorp}
 \end{wrapfigure}
-The SSN begins the game with four heavyweight torpedoes (green); after a torpedo is loosed, it either marks a kill or is removed from the game.
+The SSN begins the game with four heavyweight torpedoes (green); after a torpedo is loosed (\ref{rul:torploose}), it either marks a kill or is removed from the game.
 Ships and helos share a lightweight torpedo (yellow) counter that can be reused.
 When the SSN runs out of torpedo counters, the SSN can no longer loose torpedoes; if the SSN has not sunk the LHD with four torpedoes, the SSN loses the game (\ref{sub:defeat}).
 
@@ -211,12 +214,13 @@ If the SSN wishes to change from deep to shallow, the player places the counter 
 If the SSN wishes to change from shallow to deep, the player places the counter on the dive side.
 The player may place the counter after the SSN finishes its movement.
 The SSN cannot place the depth change marker if the SSN loosed torpedoes that turn (\ref{sub:loose_torpedoes}).
-The depth change marker will determine the depth of the DP placed in front of the  SSN (\ref{rul:ssnmaneuver}).
+The depth change marker will determine the depth of the DP placed in front of the  SSN.
 
 \counterpic{DepthDeep}
 \gamerule{rul:dpdepth} Depth counters have a deep side (dark blue) and a shallow side (light blue).
-\rulstrong{Place a depth counter corresponding to SSN's current depth (prior to changing the SSN's depth, as indicated by the presence of the depth change counter) beside the DP currently beside the SSN when the SSN begins its maneuver step (\ref{rul:ssnmaneuver}); then, after the SSN finishes its movement and has decided whether to place a depth change counter beside it, place a depth counter beside the DP placed in front of the SSN corresponding to the depth the SSN will have at the end of its next maneuver step.}
-The depth marker beside a DP determines the DP's depth, which affects sonar detection rolls (\ref{sub:detection_rolls}).
+During the SSN's maneuver step (\ref{rul:ssnmaneuver}), place a depth counter corresponding to the SSN's current depth (prior to changing the SSN's depth, as indicated by the presence of the depth change counter) beside the DP currently beside the SSN
+Then, after the SSN finishes its movement and has decided whether to place a depth change counter beside it, place a depth counter beside the DP placed in front of the SSN corresponding to the depth the SSN will have at the end of its next maneuver step.
+\rulstrong{The depth marker beside a DP determines the DP's depth, which affects sonar detection rolls (\ref{sub:detection_rolls}).}
 \gametitle~ uses two depth markers, since the depth of the DP beside the SSN is determined by the SSN counter.
 
 \subsection{Turn Tool}%
@@ -225,12 +229,14 @@ The depth marker beside a DP determines the DP's depth, which affects sonar dete
 \includegraphics[width=1.0\linewidth]{TurnTool}
 \gametitle~ provides a turn tool for whenever a ship (\ref{rul:ships}) or the SSN (\ref{rul:ssn}) need or wish to make a turn.
 One corner of the turn tool is labeled ``Easy'' and the other ``Sharp.''
-The maneuvering counter uses one of these two corners when making a turn.
+\rulstrong{The maneuvering counter uses one of these two corners when making a turn.}
 These corners determine the tightest angle at which a ship can turn.
 Which corner a unit can use depends on the unit's speed (\ref{sub:maneuver}; note that ships always use the easy corner).
 The turn tool also has light-colored regions useful for measuring distances.
 The length of the light-colored region is 1'' (if the turn tool was printed at the right scale).
-\rulstrong{When using the turn tool, place the corner of the turn tool being used so it touches the front (bow) corner of the maneuvering counter on the side of the counter that the counter is turning towards, possibly so that the side of the turn tool is flush with the side of the counter (but this is not required, in case a shallower turn is desired); then, place the maneuvering counter so that it is flush with the turn tool and at the end of the 1'' region on the turn tool ahead of the counter.}
+When using the turn tool, place the corner of the turn tool being used so it touches the front (bow) corner of the maneuvering counter on the side of the counter that the counter is turning towards.
+The side of the turn tool may be flush with the counter, but this is not required if the maneuvering counter needs to make a shallower turn.
+Then, place the maneuvering counter so that it is flush with the turn tool and at the end of the 1'' region on the turn tool ahead of the counter.
 Moving towards the end of the turn tool counts as part of the distance the counter travels.
 Note that counters must travel a minimum distance before they can use the turn tool, with that minimum distance determined by the counter's speed.
 See Figure \ref{fig:TurnIllustration} for an illustration on using the turn tool.
@@ -246,8 +252,8 @@ See Figure \ref{fig:TurnIllustration} for an illustration on using the turn tool
     \includegraphics[width=1.0\linewidth]{TurnIllustration}
     \captionof{figure}{The SSN is travelling at slow speed and, during its maneuver step, wishes to make a turn to the right (starboard).
                        The SSN can make a sharp turn, but the player does not want the SSN to make the complete 90° turn.
-                       If the player did want the SSN to make a 90° turn, the player would have placed the turn tool so that the corners of the counter and the turn tool touched on the SSN's starboard side and with the turn tool was flush in the counter.
-                       But instead, the SSN has the turn tool touch only the corner and turns it slightly so that the SSN makes a more shallow turn (1).
+                       If the player did want the SSN to make a 90° turn, the player would have placed the turn tool so that the corners of the counter and the turn tool touched on the SSN's starboard side and with the turn tool flush with the counter.
+                       But instead, the SSN has the turn tool touch only its corner and the player turns the tool slightly so the SSN will make a more shallow turn (1).
                        Once the turn tool has been placed, the player moves the SSN to the end of the 1'' space marked on the turn tool in front of the SSN, with the SSN counter ending flush with the turn tool (2).}
     \label{fig:TurnIllustration}
 \end{Figure}
@@ -263,10 +269,10 @@ See Figure \ref{fig:TurnIllustration} for an illustration on using the turn tool
 \end{enumerate}
 
 \begin{design}
-    If you have any real-world experience with undersea warfare, you will likely notice things while playing \gametitle~ and say, ``Wait a minute, that's not right!''
+    If you have any real-world experience with undersea warfare, you will likely notice inaccuracies while playing \gametitle~ and say, ``Wait a minute, that's not right!''
     Early on when designing my tactical submarine games, I decided not to ever ask questions related to key performance parameters of the platforms and weapons I was depicting.
     Such parameters include ranges, speeds, dipping rates, and so on.
-    I did not want someone to perceive me as saying something I should not say, especially when the end goal was to post a complete game as a PNG on Twitter without asking for anyone's consent to me doing so.
+    I did not want someone to perceive me as saying something I should not say, especially when the end goal was to post a complete game as a PNG on Twitter without asking for anyone's consent in my doing so.
     As a result, some things do not line up with reality.
     I may do things differently if I revisit this design, but only if I expect to be paid.
 \end{design}
@@ -274,20 +280,7 @@ See Figure \ref{fig:TurnIllustration} for an illustration on using the turn tool
 \subsection{Detection Rolls}%
 \label{sub:detection_rolls}
 
-\rulstrong{Detection rolls occur when the surface units (ships and helos) listen for the SSN using its passive sonar at the start of their turn, or during torpedo attacks, with the torpedo using active sonar to home on its target.}
-
-\gamerule{rul:sonarthreshold} \rulstrong{The sonar detection threshold starts at 19, then the player subtracts modifiers from the starting number to determine the final threshold that the die roll must exceed.}
-Every detection roll consists of two parties: a listener, and a target.
-During surface detection rolls in the surface detection step (\ref{sub:surface_detection_step}), the listener is a ship or helo, and the target is a DP.
-During torpedo attack detection rolls (\ref{rul:torphoming}), the listener is the active torpedo and the target is the target ship or SSN the torpedo is homing on (\emph{not} a DP).
-The listener is either at shallow or deep depth.
-Ships always listen at shallow depth, while other counters may vary the listening depth.
-Similarly, the target is either at shallow or deep depth.
-If the listener is at shallow depth, the target must be within a CZ in order for detection to be possible; otherwise, the detection roll automatically fails (though the roll is still considered to have taken place, even if the player does not physically roll the dice).
-The listener is either using passive sonar or active sonar, with passive sonar used by unalerted ships, and active sonar used by alerted ships, helos, and torpedoes.
-Some modifiers depend on which sonar type the listener is using.
-See Table \ref{tab:detection} for a full list of modifiers to the detection threshold possible.
-Note that it's possible for a final threshold value to exceed 12, in which case detection is not possible and the player may skip rolling the dice, though the roll is still considered to have happened (which may matter during torpedo attacks targeting the SSN).
+\rulstrong{Detection rolls occur when the surface units (ships and helos) listen for the SSN using passive or active sonar at the start of their turn, or during torpedo attacks, with the torpedo using active sonar to home on its target.}
 
 \begin{Table}
     \centering
@@ -299,7 +292,7 @@ Note that it's possible for a final threshold value to exceed 12, in which case 
         \dtabrow{Starting Threshold}{$\ge 19$}
         \dtabrow{Listener Shallow, No CZ}{Fail}
         \dtabrow{Target Same Depth}{$-3$}
-        \dtabrow{Target Ship, SSN, or DP Beside SSN}{$-3$}
+        \dtabrow{Target Ship, SSN, or \linebreak DP Beside SSN}{$-3$}
         \hline
         \dtabsec{Active Sonar}
         \dtabrow{Listener Shallow, CZ}{$-8$}
@@ -318,6 +311,28 @@ Note that it's possible for a final threshold value to exceed 12, in which case 
     \label{tab:detection}
 \end{Table}
 
+\gamerule{rul:sonarthreshold} \rulstrong{The sonar detection threshold starts at 19, then the player subtracts modifiers from the starting threshold number to determine the final threshold that the die roll must exceed.}
+Every detection roll concerns two parties: a listener, and a target.
+During surface detection rolls in the surface detection step (\ref{sub:surface_detection_step}), the listener is a ship or helo, and the target is a DP.
+During torpedo attack detection rolls (\ref{rul:torphoming}), the listener is the active torpedo and the target is the target ship or SSN the torpedo is homing on (\emph{not} a DP).
+The listener is either at shallow or deep depth.
+Ships always listen at shallow depth, while other counters may vary their listening depth.
+Similarly, the target is either at shallow or deep depth.
+If the listener is at shallow depth, the target must be within a CZ in order for detection to be possible; otherwise, the detection roll automatically fails (though the roll is still considered to have taken place, even if the player does not physically roll the dice).
+The listener is either using passive sonar or active sonar, with passive sonar used by unalerted ships, and active sonar used by alerted ships, helos, and torpedoes.
+Some modifiers depend on which sonar type the listener is using.
+See Table \ref{tab:detection} for a full list of modifiers to the detection threshold possible.
+Note that it's possible for a final detection threshold value to exceed 12, in which case detection is not possible and the player may skip rolling the dice, though the roll is still considered to have happened (which may matter during torpedo attacks targeting the SSN).
+
+\begin{Figure}
+    \centering
+    \includegraphics[width=1.0\linewidth]{CZIllustration}
+    \captionof{figure}{Illustration of three CZs surrounding a listening helo at shallow depth (not drawn to scale).
+                       A CZ is shaded red.
+                       If the helo were listening for the SSN while at shallow depth, the SSN must be within one of the CZs to be detectable.}
+    \label{fig:CZIllustration}
+\end{Figure}
+
 \gamerule{rul:cz} A convergence zone (CZ) is a region where a target must be present in order for a listener at shallow depth to be able to detect the target.
 CZs repeat with distance; there is no limit to the number of CZs around a listener.
 \rulstrong{CZs start 4'' away from the listener, each spans 4'', and each is separated from another CZ by 4''.}
@@ -325,35 +340,10 @@ For example the first CZ is a ring around the listener from 4''away from the lis
 If any part of a target's counter is inside a CZ, the target is considered to be inside the CZ.
 See Figure \ref{fig:CZIllustration} for an illustration.
 
-\begin{Figure}
-    \centering
-    \includegraphics[width=1.0\linewidth]{CZIllustration}
-    \captionof{figure}{Illustration of three CZs surrounding a listening helo at shallow depth (not drawn to scale).
-                       A CZ is shaded red.
-                       If the helo were listening for the SSN using active sonar, the SSN must be within one of the CZs to be detectable.}
-    \label{fig:CZIllustration}
-\end{Figure}
-
 \gamerule{rul:sonarroll} \rulstrong{To make a detection roll, roll 2d6; the detection roll succeeds if the sum is equal to or greater than the detection threshold.}
 In some cases a successful detection may not be possible, in which case the player may forgo rolling the dice.
 The roll is still considered to have happened even if it automatically failed.
-See \ref{fig:DetectIllustration} for an example.
-
-\begin{Figure}
-    \centering
-    \includegraphics[width=1.0\linewidth]{DetectIllustration}
-    \captionof{figure}{In this example (not drawn to scale), a FF listens for the DP beside the SSN during the surface detection step (\ref{sub:surface_detection_step}) at shallow depth using active sonar.
-                       CZs affect the FF's ability to detect the SSN due to listening at shallow depth; since the DP is 6'' away and thus within a CZ (which spans from 4'' away from the FF to 8'' away), the FF might be able to detect the SSN.
-                       When computing the detection threshold for whether the FF can detect the DP, the player starts with the starting threshold of 19.
-                       DP 1 is within a CZ (unlike DP 2) and thus might not have an automatically failed detection roll.
-                       Since the depth of the DP is deep (since the DP is beside the SSN and the SSN's depth is deep), the player does not apply the $-3$ modifier for the target being at the same depth as the listener.
-                       However, DP 1 is beside the SSN (unlike DP 2) and thus the player applies a $-3$ modifier to the threshold, bringing it down to 16.
-                       Next, the player looks to the passive sonar rows of the detection table (Table \ref{tab:detection}).
-                       The speed indicated by the DP is fast, so the player applies the $-6$ modifier to the detection threshold, bringing it down to 10.
-                       Since the listener is at shallow depth and the target is inside a CZ, the player applies another $-2$ modifier; the final detection threshold is 8.
-                       The player rolls 2d6 and gets 7, a failed detection since it is less than the detection threshold.}
-    \label{fig:DetectIllustration}
-\end{Figure}
+See Figure \ref{fig:DetectIllustration} for an example.
 
 \begin{design}
     In the example in Figure \ref{fig:DetectIllustration}, the convergence zone is measured starting from the FF and going to the DP.
@@ -365,12 +355,12 @@ See \ref{fig:DetectIllustration} for an example.
 \subsection{Surface Detection Step}%
 \label{sub:surface_detection_step}
 
-During the surface detection step, surface units listen for the SSN, and react accordingly.
+During the surface detection step, surface units listen for the SSN, then react accordingly.
 The surface detection step happens before attacks and maneuvers for surface units.
 One of two outcomes can result from successful surface detection of the SSN:
 \begin{itemize}
-    \item Unalerted ships become alerted, which results in ships using active sonar and potentially attacking the SSN.
-    \item Alerted units (helos are always alert) attack the SSN during the surface units' loose torpedoes step (\ref{sub:loose_torpedoes}).
+    \item Unalerted ships become alerted, which results in ships using active sonar and potentially attacking the SSN (\ref{rul:surfdetectresults}).
+    \item Alerted units (helos are always alert) attack the SSN (\ref{rul:surfdetectresults}) during the surface units' loose torpedoes step (\ref{sub:loose_torpedoes}).
 \end{itemize}
 \rulstrong{The surface detection step consists of two substeps:}
 \begin{enumerate}
@@ -378,14 +368,30 @@ One of two outcomes can result from successful surface detection of the SSN:
     \item Make detection rolls for each DP (\ref{rul:surfdetection}).
 \end{enumerate}
 
-\gamerule{rul:detectspread} \rulstrong{If any ship started the surface detection step alerted and unalerted ships remain, alert all unalerted ships.}
-Note that the newly alerted ships did not start the SSN's step alerted, so they will not launch helos this turn.
+\gamerule{rul:detectspread} \rulstrong{If any ship started the surface detection step alerted (\ref{rul:ships}) and unalerted ships remain, alert all unalerted ships.}
+Note that the newly alerted ships did not start the SSN's turn alerted, so they will not launch helos this turn (\ref{rul:helomaneuver}).
 
-\gamerule{rul:surfdetection} \rulstrong{Make a detection roll (\ref{sub:detection_rolls}) for each DP in the play area.}
+\begin{Figure}
+    \centering
+    \includegraphics[width=1.0\linewidth]{DetectIllustration}
+    \captionof{figure}{In this example (not drawn to scale), a FF listens for the DP beside the SSN during the surface detection step (\ref{sub:surface_detection_step}) at shallow depth using active sonar.
+                       CZs affect the FF's ability to detect the SSN due to listening at shallow depth; since the DP is 6'' away and thus within a CZ (which spans from 4'' away from the FF to 8'' away), the FF might be able to detect the SSN.
+                       When computing the detection threshold for whether the FF can detect the DP, the player starts with the starting threshold of 19.
+                       DP 1 is within a CZ (unlike DP 2) and thus might not have an automatically failed detection roll.
+                       Since the depth of the DP is deep (since the DP is beside the SSN and the SSN's depth is deep), the player does not apply the $-3$ modifier for the target being at the same depth as the listener.
+                       However, DP 1 is beside the SSN (unlike DP 2) and thus the player applies a $-3$ modifier to the threshold, bringing it down to 16.
+                       Next, the player looks to the passive sonar section of the detection table (Table \ref{tab:detection}).
+                       The speed indicated by the DP is fast, so the player applies the $-6$ modifier to the detection threshold, bringing it down to 10.
+                       Since the listener is at shallow depth and the target is inside a CZ, the player applies another $-2$ modifier; the final detection threshold is 8.
+                       The player rolls 2d6 and gets 7, a failed detection since it is less than the detection threshold.}
+    \label{fig:DetectIllustration}
+\end{Figure}
+
+\gamerule{rul:surfdetection} \rulstrong{Make a detection roll (\ref{sub:detection_rolls}) for each DP (\ref{rul:dp}) in the play area (\ref{rul:leavetable}).}
 Roll 2d6 once for each DP; each surface unit determines independently whether the result of the die roll results in a successful detection (different surface units likely have different detection thresholds).
 Ships always listen at shallow depth.
-Helos listen at the depth shown on their counter if they have not launched from their ship this turn.
-Unalerted ships use passive sonar.
+Helos listen at the depth shown on their counter if they have not launched from a ship this turn.
+Unalerted ships (\ref{rul:ships}) use passive sonar.
 Helos and alerted ships use active sonar.
 Remember that if the SSN is at least 12'' away from the nearest FF after sinking the LHD and is not detected during this step, the SSN wins the game (\ref{sub:victory}).
 
@@ -396,14 +402,14 @@ Remember that if the SSN is at least 12'' away from the nearest FF after sinking
 \end{design}
 
 \gamerule{rul:surfdetectresults} \rulstrong{Successful detection rolls for unalerted ships (\ref{rul:ships}) results in the ships becoming alerted (flipping over their counter), while successful detection rolls for helos and alerted ships may result in attacks.}
-If a helo or alerted ship is within 12'' of the detected DP, it will loose one or two torpedoes during the surface units' loose torpedoes step (\ref{sub:loose_torpedoes}).
+If a helo or alerted ship is within 12'' of the detected DP (\ref{rul:dp}), it will loose one or two torpedoes during the surface units' loose torpedoes step (\ref{sub:loose_torpedoes}).
 (The torpedo will target the SSN and is still subject to the 18'' fuel range rule.
-A helo or alerted ship that was not within 12'' of the ship does nothing.)
+A helo or alerted ship that was not within 12'' of the DP does nothing.)
 
 \subsection{Loose Torpedoes}%
 \label{sub:loose_torpedoes}
 
-Surface units may loose torpedoes at the SSN if they detected the SSN using active sonar (\ref{rul:surfdetection}) during the surface units' detection step,
+Surface units may loose torpedoes (\ref{rul:torpkill}) at the SSN if they detected the SSN using active sonar (\ref{rul:surfdetection}) during the surface units' detection step (\ref{sub:surface_detection_step}),
 The SSN may loose torpedoes at a ship (\ref{rul:ships}) at the start of its turn.
 Multiple torpedoes may be launched in a turn; resolve each attack separately.
 Torpedo attacks involve a shooter (the counter loosing the torpedo) and a target (where the torpedo will go and the counter that may be sunk if the attack is successful).
@@ -414,11 +420,11 @@ Torpedo attacks involve a shooter (the counter loosing the torpedo) and a target
     \item Determining if the torpedo successfully killed its target (\ref{rul:torphitship}, \ref{rul:torphitssn}).
 \end{enumerate}
 
-\gamerule{rul:torploosecount} \rulstrong{Different units fire a different number of torpedoes a turn.}
+\gamerule{rul:torploosecount} \rulstrong{Different units fire a different number of torpedoes (\ref{rul:torpkill}) a turn.}
 The SSN can loose at most two torpedoes a turn, at player discretion.
 If no SSN torpedo counters remain, the SSN cannot loose torpedoes.
 (If the SSN has no torpedoes and the LHD has not been sunk, the SSN loses the game; \ref{sub:defeat}.)
-Helos loose two torpedoes, then are removed from the game.
+Helos loose two torpedoes each, then are removed from the game.
 Ships loose one torpedo a turn each.
 This is summarized in Table \ref{tab:torploosecount}.
 \begin{Table}
@@ -441,18 +447,18 @@ This is summarized in Table \ref{tab:torploosecount}.
     Presumably a helo has loosed all its torpedoes and must return to a ship, in which case the game no longer tracks the helo.
 \end{design}
 
-\gamerule{rul:torpalert} \rulstrong{Loosing a torpedo alerts all ships immediately.}
+\gamerule{rul:torpalert} \rulstrong{Loosing a torpedo (\ref{rul:torpkill}) alerts all ships immediately.}
 Note, though, that ships alerted this way by the SSN loosing torpedoes did not start the SSN's turn alerted.
 (Thus, they might not launch helos during the surface units' next turn.)
 
-\gamerule{rul:torprange} \rulstrong{The fuel range of all torpedoes in \gametitle~ is 18''.}
+\gamerule{rul:torprange} \rulstrong{The fuel range of all torpedoes (\ref{rul:torpkill}) in \gametitle~ is 18''.}
 If a target is not within the torpedo's fuel range, the torpedo automatically misses.
 
-\gamerule{rul:torploose} \rulstrong{At the start of a torpedo attack, the torpedo looses at the shooter's depth.}
+\gamerule{rul:torploose} \rulstrong{At the start of a torpedo attack, the torpedo (\ref{rul:torpkill}) looses at the shooter's depth.}
 All surface units loose torpedoes at shallow depth.
-Place a torpedo counter at the shooter's location.
+Place a torpedo counter at the shooter's location to start the torpedo homing process.
 
-\gamerule{rul:torphoming} \rulstrong{Repeat the following torpedo homing process until the torpedo reaches its target:}
+\gamerule{rul:torphoming} \rulstrong{Repeat the following torpedo homing process until the torpedo (\ref{rul:torpkill}) reaches its target:}
 \begin{enumerate}
     \item Make a detection roll using the torpedo's active sonar (\ref{sub:detection_rolls}) against the torpedo's target.
         Note the result.
@@ -469,32 +475,11 @@ If one of the SSN's torpedoes missed its target, remove the torpedo counter from
 See Figure \ref{fig:TorpAttackIllustration} for an illustration.
 
 \counterpic{Kill}
-\gamerule{rul:torphitship} \rulstrong{If a torpedo hit a ship, roll 1d6; on a roll of $2$ or more, flip the torpedo over to its kill side and place it on the ship, marking a kill.}
+\gamerule{rul:torphitship} \rulstrong{If a torpedo (\ref{rul:torpkill}) hit a ship (\ref{rul:ships}), roll 1d6; on a roll of $2$ or more, flip the torpedo over to its kill side and place it on the ship, marking a kill.}
 Otherwise, the torpedo failed to damage the ship sufficiently and is removed from the game.
-One torpedo kill sinks a FF, turning the FF into a wreck.
-Two torpedo kill shots sinks the LHD, turning the LHD into a wreck (an important part of the SSN winning the game; \ref{sub:victory}).
-If the LHD has only one kill on it, the LHD is damaged but not sunk, affecting its maneuvers.
-
-\begin{Figure}
-    \centering
-    \includegraphics[width=1.0\linewidth]{TorpAttackIllustration}
-    \captionof{figure}{A helo detected a DP during the surface units' detection step (\ref{rul:surfdetectresults}), so during the surface units' attack step, the helo attacks the SSN with torpedoes.i
-                       The helo will loose two torpedoes, then be removed from the game (\ref{rul:torploosecount}).
-                       The SSN is 6'' away and at deep depth.
-                       Both of the helo's torpedoes, when loosed, start out at shallow depth (\ref{rul:torploose}).
-                       The first torpedo starts homing after being loosed (\ref{rul:torphoming}).
-                       Since the torpedo uses active sonar, is at shallow depth, targeting the SSN at deep depth (so not the same depth as the torpedo), and the SSN is in a convergence zone (\ref{rul:cz}), the initial sonar detection threshold is 5 (\ref{rul:sonarthreshold}) (1).
-                       The player rolls 2d6 and gets a roll of 4, a failed detection (\ref{rul:sonarroll}).
-                       Regardless, the torpedo advances 5'' closer to the SSN in a straight line from its previous position, then makes another detection roll (2).
-                       The torpedo is now at the target's depth, deep.
-                       Since the torpedo is now at deep depth and the same depth as its target, the new detection threshold is 7.
-                       The torpedo rolls 8, a successful detection roll.
-                       Thus, the torpedo has not had two failed detection rolls in a row and at least one successful detection, so it moves 1'' to hit the submarine (3).
-                       Since the torpedo made two detection rolls, the torpedo's evasion save threshold is 4 (\ref{rul:torphitssn}).
-                       With a roll of 5 on 1d6, the SSN successfully evades the torpedo.
-                       The helo then drops its second torpedo (which starts homing on the SSN) and is removed from the game.}
-    \label{fig:TorpAttackIllustration}
-\end{Figure}
+One torpedo kill sinks a FF (\ref{rul:ff}), turning the FF into a wreck (\ref{rul:wrecks}).
+Two torpedo kill shots sinks the LHD (\ref{rul:lhd}), turning the LHD into a wreck (an important part of the SSN winning the game; \ref{sub:victory}).
+If the LHD has only one kill on it, the LHD is damaged but not sunk, affecting its maneuvers (\ref{rul:lhdmaneuver}).
 
 \gamerule{rul:torphitssn} \rulstrong{If a torpedo hits the SSN, the SSN first gets an evasion save, with the threshold for success being 6 \emph{minus the number of detection rolls the torpedo made while homing}; if a roll of 1d6 exceeds the threshold, the SSN successfully evaded the torpedo, but otherwise the torpedo killed and sunk the SSN.}
 Needless to say, the SSN loses the game if sunk (\ref{sub:defeat})
@@ -506,8 +491,8 @@ Needless to say, the SSN loses the game if sunk (\ref{sub:defeat})
 \subsection{Maneuver}%
 \label{sub:maneuver}
 
-\rulstrong{Both the surface units and the SSN maneuver as the last step of their turns.}
-SSN maneuvers are controlled by the player while surface unit maneuvers are determined by die rolls.
+\rulstrong{Surface units and the SSN maneuver as the last step of their respective turns.}
+SSN maneuvers are controlled by the player, while surface unit maneuvers are determined by die rolls.
 
 \gamerule{rul:ssnmaneuver} \rulstrong{The SSN's maneuver step consists of completing the following steps:}
 \begin{enumerate}
@@ -519,10 +504,10 @@ SSN maneuvers are controlled by the player while surface unit maneuvers are dete
       The speed the SSN travelled last turn is shown on the DP currently beside the SSN.
       The SSN may travel at either the same speed, one level slower (if possible), or one level faster (if possible).
       See Table \ref{tab:speed} for movement rates. 
-      The SSN may use the turn tool to turn while it moves (\ref{sub:turn_tool}) with each turn separated by either 1'' at creep or slow speeds, or 2'' at fast or flank speeds.
+      The SSN may use the turn tool to turn while it moves (\ref{sub:turn_tool}), with each turn separated by either 1'' at creep or slow speeds, or 2'' at fast or flank speeds.
       This also means that the SSN is required to move 1'' at creep or slow speed, or 2'' at fast or flank speed, before it can use the turn tool for the first time during its maneuver step, and it must complete the post-turn 1'' move as part of using the turn tool.
       All inches moved while using the turn tool count against the total number of inches moved during the SSN's maneuver step.
-    \item If the SSN did not loose torpedoes this turn (\ref{rul:torploose}), the SSN may place the dive or rise counter so that it will change its depth \emph{next turn.}
+    \item If the SSN did not loose torpedoes this turn (\ref{rul:torploose}), the SSN may place the dive or rise counter so that it will change its depth \emph{next SSN turn.}
     \item Place any DP beside the SSN.
       Then, place a DP in a straight line in front of the SSN at a distance equal to the distance the SSN traveled this turn.
       The DP must have the speed corresponding to the distance traveled by the SSN this turn.
@@ -551,7 +536,28 @@ The helos do not move yet, but move the helos off their ships to indicate they n
 All surface units move simultaneously.
 Collisions should not happen; should a collision be unavoidable (perhaps because of an ill-positioned wreck), stop the surface unit immediately prior to collision.
 If any surface units move off the table during the maneuver step prior to the LHD being destroyed, the SSN loses the game (\ref{sub:defeat}).
-Otherwise, surface units that move off the table are removed from the game.
+Otherwise, surface units that move off the table are removed from the game (\ref{rul:leavetable}).
+
+\begin{Figure}
+    \centering
+    \includegraphics[width=1.0\linewidth]{TorpAttackIllustration}
+    \captionof{figure}{A helo detected a DP during the surface units' detection step (\ref{rul:surfdetectresults}), so during the surface units' attack step, the helo attacks the SSN with torpedoes.
+                       The helo will loose two torpedoes, then be removed from the game (\ref{rul:torploosecount}).
+                       The SSN is 6'' away and at deep depth (\ref{rul:ssn}).
+                       Both of the helo's torpedoes, when loosed, start out at shallow depth (\ref{rul:torploose}).
+                       The first torpedo starts homing after being loosed (\ref{rul:torphoming}).
+                       Since the torpedo uses active sonar, is at shallow depth, targeting the SSN at deep depth (so not the same depth as the torpedo), and the SSN is in a convergence zone (\ref{rul:cz}), the initial sonar detection threshold is 5 (\ref{rul:sonarthreshold}) (1).
+                       The player rolls 2d6 and gets a roll of 4, a failed detection (\ref{rul:sonarroll}).
+                       Regardless, the torpedo advances 5'' closer to the SSN in a straight line from its previous position, then makes another detection roll (2).
+                       The torpedo is now at the target's depth, deep.
+                       Since the torpedo is now at deep depth and the same depth as its target, the new detection threshold is 7.
+                       The torpedo rolls 8, a successful detection roll.
+                       Thus, the torpedo has not had two failed detection rolls in a row and at least one successful detection, so it moves 1'' to hit the submarine (3).
+                       Since the torpedo made two detection rolls, the torpedo's evasion save threshold is 4 (\ref{rul:torphitssn}).
+                       With a roll of 5 on 1d6, the SSN successfully evades the torpedo.
+                       The helo then drops its second torpedo (which starts homing on the SSN) and is removed from the game.}
+    \label{fig:TorpAttackIllustration}
+\end{Figure}
 
 \begin{design}
     I have seen situations where a ship needs to stop in order to not collide with a wreck.
@@ -562,17 +568,13 @@ Otherwise, surface units that move off the table are removed from the game.
 \gamerule{rul:wrecks} \rulstrong{A FF (\ref{rul:ff}) with a kill counter (\ref{rul:torpkill}) or LHD (\ref{rul:lhd}) with two kill counters is a wreck.}
 Wrecks do nothing for the rest of the game.
 Helos (\ref{rul:helo}) aboard wrecks are lost.
-Other units avoid wrecks as best as they can.
-
-\begin{design}
-    I recommend moving determining the LHD's maneuver first if the LHD has not been sunk,  as that will determine FF maneuvers.
-\end{design}
+Other ships avoid wrecks as best as they can during their maneuver.
 
 \gamerule{rul:lhdmaneuver} \rulstrong{The LHD's (\ref{rul:lhd}) maneuver is determined by a 1d6 roll.}
 In all cases, the LHD will move a total of 4''.
 Use Table \ref{tab:lhdmaneuverroll} to determine the LHD's maneuver.
-When making a turn (\ref{sub:turn_tool}), ships make the sharpest turn possible.
-If the LHD has one kill counter on it. it moves forward 1'' only, without making a maneuver die roll.
+When making a turn (\ref{sub:turn_tool}), ships (\ref{rul:ships}) make the sharpest turn possible.
+If the LHD has one kill counter on it (\ref{rul:torpkill}, \ref{rul:torphitship}). it moves forward 1'' only, without making a maneuver die roll.
 \begin{Table}
     \centering
     \captionof{table}{LHD maneuver die roll table}
@@ -589,7 +591,7 @@ If the LHD has one kill counter on it. it moves forward 1'' only, without making
 \end{Table}
 
 \gamerule{rul:helomaneuver} \rulstrong{Helos (\ref{rul:helo}) launched from a ship (\ref{rul:ships}) this turn or who's counter started the maneuver step on its deep side will move in the direction of a randomly selected DP, while a helo not launched from a ship with its counter on its shallow side flips to its deep side.}
-Use Table \ref{tab:dpselect} to pick a DP (\ref{rul:dp}); roll separately for each helo.
+Use Table \ref{tab:dpselect} to pick a DP (\ref{rul:dp}); roll separately for each moving helo.
 The helo moves in a direct line from its current location to the DP until it is 5'' away from the DP (with minor adjustments so counters do not sit on top of one another).
 \begin{Table}
     \centering
@@ -608,7 +610,7 @@ The helo moves in a direct line from its current location to the DP until it is 
 
 \gamerule{rul:ffmaneuver} \rulstrong{FF (\ref{rul:ff}) maneuvers depend on whether the LHD (\ref{rul:lhd}) has been sunk or not.}
 If the LHD has not been sunk, repeat the LHD's maneuver for each FF.
-If the LHD has been sunk, randomly pick a DP (\ref{rul:dp}) using Table \ref{tab:dpselect}), then move the FF in the direction of that DP as if it were the SSN moving at fast speed (see Table \ref{tab:speed}), avoiding wrecks.
+If the LHD has been sunk, randomly pick a DP (\ref{rul:dp}) using Table \ref{tab:dpselect}, then move the FF in the direction of that DP as if it were the SSN moving at fast speed (see Table \ref{tab:speed}), avoiding wrecks.
 
 \end{document}
 
